@@ -1,0 +1,10 @@
+.logo {
+	display: inline-flex;
+	align-items: center;
+	gap: .5rem;
+	color: #FFF;
+
+	&--dark {
+		color: #000;
+	}
+}

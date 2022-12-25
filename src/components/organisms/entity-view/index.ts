@@ -1,0 +1,1 @@
+export { EntityView } from './entity-view';

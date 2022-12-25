@@ -1,0 +1,62 @@
+{
+  "compilerOptions": {
+	"experimentalDecorators": true,
+    "target": "ES2020",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+	"baseUrl": ".",
+	"paths": {
+		"#styles/*": [
+			"./src/styles/*"
+		],
+		"#_settings/*": ["./src/components/_settings/*"],
+		"#atoms/*": [
+			"src/components/atoms/*"
+		],
+		"#molecules/*": [
+			"src/components/molecules/*"
+		],
+		"#organisms/*": [
+			"src/components/organisms/*"
+		],
+		"#templates/*": [
+			"src/components/templates/*"
+		],
+		"#pages/*": [
+			"src/components/pages/*"
+		],
+		"#libs/*": ["./src/libs/*"],
+		"#services/*": ["./src/services/*"],
+		"#types/*": ["./src/types/*"],
+		"#schemas/*": ["./src/schemas/*"],
+		"#repositories/*": ["./src/repositories/*"],
+		"#config/*": ["./src/config/*"],
+		"#stores/*": ["./src/stores/*"]
+	}
+  },
+  "exclude": [
+	"node_modules",
+	".next",
+	".vscode",
+	"deploy",
+	"public",
+	"shell-scripts"
+],
+"include": [
+	"next-env.d.ts",
+	"**/*.ts",
+	"**/*.tsx",
+	"**/*.js"
+]
+}
