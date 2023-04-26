@@ -1,35 +1,42 @@
 import { FormatInputCurrency } from '#libs/format-input-currency';
 import { Toolbar } from '#molecules/toolbar';
 import { orderRepo } from '#repositories/endpoints';
-import { TCart } from '#types/TCart';
 import { TOrder } from '#types/TOrder';
 import { TStatus } from '#types/TStatus';
 import { Form, Input, InputNumber, message, Select } from 'antd';
 import { FC } from 'react';
 import { CartItems } from './components/cart-items';
 import { ClientItem } from './components/client-item';
+import { useRouter } from 'next/router';
 
 type TProps = {
 	statuses: TStatus[]
+	path: string
 }
 
 const AddEditOrder: FC<TProps> = ({
 	statuses,
+	path,
 }) => {
 	const [form] = Form.useForm();
+	const router = useRouter();
+	let isClose = false;
 
 	const handleFinish = async (order: TOrder) => {
-		console.log(order);
-		return;
 		try {
 			await orderRepo.create(order);
 			message.success('Заказ создан!');
+			isClose && router.replace('/orders');
 		} catch (error) {
 			message.error((error as Error).message);
 		}
 	};
 
+	/**
+	 * TODO: Доработать функционал добавления товара в заказ
+	 */
 	const handleChangeSum = () => {
+		/*
 		const carts = form.getFieldValue('carts') as TCart[];
 
 		if (carts) {
@@ -38,11 +45,21 @@ const AddEditOrder: FC<TProps> = ({
 		} else {
 			form.setFieldsValue({ sum: 0 });
 		}
+		*/
+	};
+
+	const onCancel = () => {
+		router.replace(path);
+	};
+
+	const handleSaveAndClose = () => {
+		isClose = true;
+		form.submit();
 	};
 
 	return (
 		<>
-			<Toolbar onSave={() => form.submit()} onSaveAndClose={() => null} onCancel={() => null} />
+			<Toolbar onSave={() => form.submit()} onSaveAndClose={() => handleSaveAndClose()} onCancel={onCancel} />
 			<Form form={form} layout='vertical' onFinish={handleFinish}>
 				<ClientItem form={form} />
 

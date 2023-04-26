@@ -18,9 +18,7 @@ const Link: FC<TProps> = ({
 
 	return (
 		<NextLink {...props}>
-			<a {...anchorProps}>
-				{children}
-			</a>
+			{children}
 		</NextLink>
 	);
 };

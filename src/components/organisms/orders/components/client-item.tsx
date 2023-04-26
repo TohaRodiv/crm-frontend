@@ -3,7 +3,7 @@ import { FormCreateEdit } from '#organisms/form-create-edit';
 import { userRepo } from '#repositories/endpoints';
 import { userSchema } from '#schemas/user-schema';
 import { TUser } from '#types/TUser';
-import { UserAddOutlined, UserDeleteOutlined, UserSwitchOutlined } from '@ant-design/icons';
+import { UserAddOutlined, UserSwitchOutlined } from '@ant-design/icons';
 import { Button, Form, FormInstance, Input, Modal } from 'antd';
 import type { ColumnsType } from 'antd/lib/table';
 import { FC, useState } from 'react';
@@ -56,7 +56,7 @@ const ClientItem: FC<TProps> = ({
 	const handleSelect = (client: TUser) => {
 		setClient(() => {
 			form.setFieldsValue({ user: null });
-			client && form.setFieldsValue({ user: { id: client.id } });
+			client && form.setFieldsValue({ user: client.id });
 			setOpenSelectModal(false);
 			return client;
 		});

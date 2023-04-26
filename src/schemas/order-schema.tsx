@@ -1,8 +1,7 @@
 import { Link } from '#atoms/link';
-import { cartRepo, statusRepo, userRepo } from '#repositories/endpoints';
+import { productRepo, statusRepo, userRepo } from '#repositories/endpoints';
 import { TOrder } from '#types/TOrder';
 import { TSchema } from '#types/TSchema';
-import { cartSchema } from './cart-schema';
 
 export const orderSchema: TSchema<TOrder> = {
 	id: {
@@ -36,12 +35,11 @@ export const orderSchema: TSchema<TOrder> = {
 				</Link>
 			): null,
 	},
-	cart: {
-		title: 'Корзина',
+	products: {
 		type: 'relation',
-		format: 'one-to-many',
-		repo: cartRepo,
-		schema: cartSchema,
+		format: 'many-to-many',
+		repo: productRepo,
+		title: 'Товары',
 		display: false,
 	},
 	sum: {

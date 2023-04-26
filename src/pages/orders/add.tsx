@@ -1,4 +1,4 @@
-import { AddEditOrder } from '#pages/orders';
+import { AddEditOrder } from '#organisms/orders';
 import { GetServerSideProps, NextPage } from 'next';
 import { TStatus } from '#types/TStatus';
 import { statusRepo } from '#repositories/endpoints';
@@ -10,7 +10,7 @@ type TProps = {
 const OrderAdd: NextPage<TProps> = ({
 	statuses
 }) => {
-	return <AddEditOrder statuses={statuses} />;
+	return <AddEditOrder statuses={statuses} path='/orders' />;
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {

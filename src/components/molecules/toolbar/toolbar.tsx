@@ -21,7 +21,7 @@ const Toolbar: FC<TProps> = ({
 }) => {
 	return (
 		<>
-			<Space>
+			<Space wrap={true}>
 				{
 					onAdd && (
 						<Button onClick={() => { onAdd(); }} type='primary' ghost>

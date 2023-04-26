@@ -21,8 +21,4 @@ export const menu: TMenu[] = [
 		title: 'Заказы',
 		href: '/orders',
 	},
-	{
-		title: 'Корзины',
-		href: '/carts',
-	},
 ];

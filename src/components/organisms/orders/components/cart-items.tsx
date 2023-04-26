@@ -1,7 +1,6 @@
 
 import { FormatInputCurrency } from '#libs/format-input-currency';
 import { productRepo } from '#repositories/endpoints';
-import { TCart } from '#types/TCart';
 import { TProduct } from '#types/TProduct';
 import { DeleteOutlined, FileAddOutlined } from '@ant-design/icons';
 import { Button, Form, FormInstance, InputNumber, message, Select, Space } from 'antd';
@@ -16,6 +15,7 @@ type TProps = {
 let products: TProduct[] = [];
 
 const calcProductSum = (form: FormInstance, index: number, onSumChange: () => void) => {
+	/*
 	const carts = (form.getFieldValue('carts') as TCart[]);
 	const cart = carts[index];
 
@@ -29,6 +29,7 @@ const calcProductSum = (form: FormInstance, index: number, onSumChange: () => vo
 
 	form.setFieldsValue({ carts });
 	onSumChange();
+	*/
 };
 
 const CartItems: FC<TProps> = ({
@@ -39,6 +40,7 @@ const CartItems: FC<TProps> = ({
 	const [productOptions, setProductOptions] = useState<BaseOptionType[]>([]);
 
 	const handleChangeProduct = (productId: number, index: number) => {
+		/*
 		const carts = (form.getFieldValue('carts') as TCart[]);
 		const cart = carts[index];
 		const product = products.filter(product => product.id === productId)[0];
@@ -49,6 +51,7 @@ const CartItems: FC<TProps> = ({
 
 		form.setFieldsValue({ carts });
 		onSumChange();
+		*/
 	};
 
 
@@ -74,7 +77,7 @@ const CartItems: FC<TProps> = ({
 	}, []);
 
 	return (
-		<Form.List name='carts'>
+		<Form.List name='products'>
 			{
 				(fields, { add, remove }) => (
 					<>
@@ -86,7 +89,7 @@ const CartItems: FC<TProps> = ({
 								<Space key={key} style={{ display: 'flex' }} align='baseline'>
 									<Form.Item
 										{...restField}
-										name={[name, 'product']}
+										name={[name]}
 										label='Товар'>
 										<Select
 											style={{ width: 250 }}
@@ -97,7 +100,7 @@ const CartItems: FC<TProps> = ({
 											allowClear
 										/>
 									</Form.Item>
-									<Form.Item
+									{/* <Form.Item
 										{...restField}
 										name={[name, 'count']}
 										label='Кол-во'>
@@ -133,7 +136,7 @@ const CartItems: FC<TProps> = ({
 											formatter={FormatInputCurrency}
 											style={{ width: 130 }}
 										/>
-									</Form.Item>
+									</Form.Item> */}
 									<Form.Item label=' '>
 										<Button icon={<DeleteOutlined />} onClick={() => { remove(name); onSumChange(); }} />
 									</Form.Item>

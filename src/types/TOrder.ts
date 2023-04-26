@@ -1,4 +1,4 @@
-import { TCart } from './TCart';
+import { TProduct } from './TProduct';
 import { TStatus } from './TStatus';
 import { TUser } from './TUser';
 
@@ -6,7 +6,7 @@ export type TOrder = {
 	id: number
 	user: TUser
 	status: TStatus
-	cart: TCart[]
+	products: number[] | TProduct[]
 	created_at: Date
 	updated_at: Date
 	sum: number;

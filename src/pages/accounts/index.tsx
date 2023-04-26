@@ -54,7 +54,7 @@ const Accounts: NextPage<TProps> = ({
 		}
 	};
 
-	const onSave = async (values: object) => {
+	const onSave = async (values: any) => {
 		let id: null | number = null;
 
 		if ('id' in values && values.id) {

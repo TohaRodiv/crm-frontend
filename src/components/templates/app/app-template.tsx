@@ -22,9 +22,9 @@ const AppTemplate: FC<PropsWithChildren> = ({
 	return (
 		<Layout className={styles.layout}>
 			<Header className={styles.header}>
-				<Link href='/' className={styles['logo-link']}>
+				{/* <Link href='/' className={styles['logo-link']}>
 					<Logo />
-				</Link>
+				</Link> */}
 				<Menu
 					items={items}
 					mode="horizontal"
